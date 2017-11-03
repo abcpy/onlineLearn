@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTHENTICATION_BACKENDS=(
+    'users.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +49,7 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 
 AUTH_USER_MODEL='users.UserProfile'
@@ -54,7 +58,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -66,7 +70,7 @@ ROOT_URLCONF = 'onlineLearn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +95,7 @@ DATABASES = {
         'NAME': 'onlineLearn',
         'USER':'root',
         'PASSWORD':'123456',
-        'HOST':'10.25.0.159',
+        'HOST':'10.25.0.162',
         'PORT':'3306',
 
     }
@@ -135,3 +139,16 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
+
+EMAIL_HOST="smtp.163.com"
+EMAIL_PORT=25
+EMAIL_HOST_USER='15000728721@163.com'
+EMAIL_HOST_PASSWORD='liujian3862177'
+EMAIL_USE_TLS=False
+EMAIL_FROM='15000728721@163.com'
+
+
