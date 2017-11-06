@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
+    'pure_pagination',
 ]
 
 AUTH_USER_MODEL='users.UserProfile'
@@ -78,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.media',
+
             ],
         },
     },
@@ -95,7 +98,7 @@ DATABASES = {
         'NAME': 'onlineLearn',
         'USER':'root',
         'PASSWORD':'123456',
-        'HOST':'10.25.0.162',
+        'HOST':'10.25.0.164',
         'PORT':'3306',
 
     }
@@ -150,5 +153,8 @@ EMAIL_HOST_USER='15000728721@163.com'
 EMAIL_HOST_PASSWORD='liujian3862177'
 EMAIL_USE_TLS=False
 EMAIL_FROM='15000728721@163.com'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 
