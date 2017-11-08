@@ -33,8 +33,10 @@ urlpatterns = [
     url(r'^forgetpwd/$',ForgetpwdView.as_view(),name='forgetpwd'),
     url(r'^reset/(?P<reset_code>.*)/$',PasswordResetView.as_view(),name='pwdreset'),
     url(r'^modifypwd/$',ModifyPasswordView.as_view(),name='modifypwd'),
-    url(r'^org/$',OrganizationView.as_view(),name='org_list'),
-    url(r'^media/(?P<path>.*)$',serve,{'document_root':MEDIA_ROOT})
+    url(r'^media/(?P<path>.*)$',serve,{'document_root':MEDIA_ROOT}),
+
+    url(r'^org/', include('organization.urls',namespace='org')),
+
     # url(r'^login/$',user_login,name='login'),
     # url('^login.html/$',TemplateView.as_view(template_name='login.html'),name='login')
 ]

@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'onlineLearn',
         'USER':'root',
         'PASSWORD':'123456',
-        'HOST':'10.25.0.164',
+        'HOST':'10.25.0.165',
         'PORT':'3306',
 
     }
